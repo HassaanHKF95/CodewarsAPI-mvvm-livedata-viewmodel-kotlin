@@ -5,23 +5,29 @@
     android:layout_height="match_parent"
     android:padding="15dp">
 
+    <include
+        android:id="@+id/shimmer_layout"
+        layout="@layout/shimmer_layout"
+        android:visibility="visible" />
+
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="20dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
         android:drawablePadding="10dp"
+        android:ellipsize="end"
         android:gravity="center_horizontal"
         android:includeFontPadding="false"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_title"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:drawableStartCompat="@drawable/ic_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_user"
@@ -29,13 +35,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:gravity="center_horizontal"
         android:drawablePadding="10dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="aslkandk"
+        android:visibility="gone"
+        android:textColor="@color/lighterGray"
+        android:textSize="16sp"
+        app:drawableStartCompat="@drawable/ic_user"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        app:drawableStartCompat="@drawable/ic_user" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <View
         android:id="@+id/view"
@@ -43,14 +52,17 @@
         android:layout_height="0.5dp"
         android:layout_marginTop="20dp"
         android:background="@color/darkerGray"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_user" />
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="170dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -83,7 +95,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/description"
                         android:textColor="@color/lighterGray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -94,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/desc" />
 
@@ -106,7 +118,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/tags"
                         android:textColor="@color/lighterGray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_description" />
@@ -119,7 +131,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tags" />
@@ -151,7 +163,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/languages"
                         android:textColor="@color/lighterGray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -162,7 +174,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/lang" />
 
@@ -170,12 +182,12 @@
                         android:id="@+id/category"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
                         android:text="@string/category"
                         android:textColor="@color/lighterGray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:layout_marginTop="20dp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_languages" />
 
@@ -186,7 +198,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/category" />
 
@@ -219,7 +231,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/stats"
                         android:textColor="@color/lighterGray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -232,7 +244,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/total_attempts"
                         android:textColor="@color/lighterGray"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/stats" />
 
@@ -240,11 +252,11 @@
                         android:id="@+id/tv_totalAttempts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
-                        android:layout_marginStart="10dp"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toRightOf="@+id/totalAttempts"
                         app:layout_constraintTop_toBottomOf="@+id/stats" />
 
@@ -257,7 +269,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/total_completed"
                         android:textColor="@color/lighterGray"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/totalAttempts" />
 
@@ -265,14 +277,13 @@
                         android:id="@+id/tv_totalCompleted"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
-                        android:layout_marginStart="10dp"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toRightOf="@+id/totalCompleted"
                         app:layout_constraintTop_toBottomOf="@+id/totalAttempts" />
-
 
 
                     <TextView
@@ -283,7 +294,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/total_stars"
                         android:textColor="@color/lighterGray"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/totalCompleted" />
 
@@ -291,14 +302,13 @@
                         android:id="@+id/tv_totalStar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
-                        android:layout_marginStart="10dp"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toRightOf="@+id/totalStars"
                         app:layout_constraintTop_toBottomOf="@+id/totalCompleted" />
-
 
 
                     <TextView
@@ -309,7 +319,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/vote_score"
                         android:textColor="@color/lighterGray"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/totalStars" />
 
@@ -317,11 +327,11 @@
                         android:id="@+id/tv_voteScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
-                        android:layout_marginStart="10dp"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toRightOf="@+id/voteScore"
                         app:layout_constraintTop_toBottomOf="@+id/totalStars" />
 
@@ -334,11 +344,11 @@
                 android:id="@+id/card4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:elevation="10dp"
                 app:cardBackgroundColor="@color/darkerGray"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card3">
 
@@ -354,7 +364,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/created_at"
                         android:textColor="@color/lighterGray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -365,7 +375,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/createdat" />
 
@@ -377,7 +387,7 @@
                         android:layout_marginBottom="20dp"
                         android:text="@string/published_at"
                         android:textColor="@color/lighterGray"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_createdAt" />
@@ -390,7 +400,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/publishedAt" />

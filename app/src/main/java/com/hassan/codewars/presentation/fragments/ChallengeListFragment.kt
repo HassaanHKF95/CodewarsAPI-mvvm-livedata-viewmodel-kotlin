@@ -38,18 +38,28 @@ class ChallengeListFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.challengeRecycler.adapter = adapter
         viewModel.init()
+
+        startShimmerEffect()
         viewModel.getchallengesModelLiveData()?.observe(viewLifecycleOwner, {
-            if (it != null)
+            if (it != null) {
+                stopShimmerEffect()
+                binding.challengeRecycler.visibility = View.VISIBLE
                 adapter.setChallengeList(it.data)
+            }
         })
 
         viewModel.callChallengesAPI("0")
 
-        binding.user.setOnClickListener {
-            findNavController().navigate(R.id.list_to_detail)
-        }
-
-
         return binding.root
+    }
+
+    private fun startShimmerEffect() {
+        binding.shimmerLayout.shimmerViewContainer.visibility = View.VISIBLE
+        binding.shimmerLayout.shimmerViewContainer.startShimmer()
+    }
+
+    private fun stopShimmerEffect() {
+        binding.shimmerLayout.shimmerViewContainer.visibility = View.GONE
+        binding.shimmerLayout.shimmerViewContainer.stopShimmer()
     }
 }
