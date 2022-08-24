@@ -13,7 +13,7 @@ import androidx.lifecycle.LiveData
 
 open class CodeWarRepository {
 
-    private val challengesResponseLiveData = MutableLiveData<ChallengesModel>()
+    private val challengesResponseLiveData = MutableLiveData<ChallengesModel?>()
 
     val mApiInterface =
         RetrofitRestClient.getRetrofit().create(ListOfCompletedChallengesAPI::class.java)
@@ -36,7 +36,7 @@ open class CodeWarRepository {
             })
     }
 
-    open fun getchallengesResponseLiveData(): LiveData<ChallengesModel>? {
+    open fun getchallengesResponseLiveData(): LiveData<ChallengesModel?>? {
         return challengesResponseLiveData
     }
 

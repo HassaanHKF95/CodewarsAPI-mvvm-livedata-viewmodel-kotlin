@@ -13,7 +13,7 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         android:elevation="10dp"
-        app:cardBackgroundColor="@color/lighterGray"
+        app:cardBackgroundColor="@color/darkerGray"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

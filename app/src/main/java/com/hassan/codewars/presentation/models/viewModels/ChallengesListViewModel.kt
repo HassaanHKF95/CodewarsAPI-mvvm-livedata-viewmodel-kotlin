@@ -9,7 +9,7 @@ import com.hassan.codewars.presentation.models.ChallengesModel
 class ChallengesListViewModel : ViewModel() {
 
     private val challengesRepository: CodeWarRepository = CodeWarRepository()
-    private var challengesModelLiveData: LiveData<ChallengesModel>? = null
+    private var challengesModelLiveData: LiveData<ChallengesModel?>? = null
 
     fun init() {
         challengesModelLiveData = challengesRepository.getchallengesResponseLiveData()
@@ -18,7 +18,7 @@ class ChallengesListViewModel : ViewModel() {
         challengesRepository.getChallengesListAPI(page)
     }
 
-    fun getchallengesModelLiveData(): LiveData<ChallengesModel>? {
+    fun getchallengesModelLiveData(): LiveData<ChallengesModel?>? {
         return challengesModelLiveData
     }
 }

@@ -34,12 +34,13 @@ class ChallengeListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ChallengesListViewModel::class.java)
 
 
-        binding.challengeRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.challengeRecycler.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.challengeRecycler.adapter = adapter
         viewModel.init()
-        viewModel.getchallengesModelLiveData()?.observe(viewLifecycleOwner, Observer {
-            Log.e("***DATAAA: ",it.data?.get(0)?.name.toString() )
-            adapter.setChallengeList(it.data)
+        viewModel.getchallengesModelLiveData()?.observe(viewLifecycleOwner, {
+            if (it != null)
+                adapter.setChallengeList(it.data)
         })
 
         viewModel.callChallengesAPI("0")

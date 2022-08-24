@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">HassanCodeWars</string>
+    <string name="voile">Voile\'s Completed Challenges</string>
+    <string name="codewar_challenge_api">Codewar Challenge API</string>
+    <string name="imageview">imageview</string>
+    <string name="description">Description:</string>
+    <string name="languages">Languages:</string>
+    <string name="tags">Tags:</string>
+    <string name="category">Category:</string>
+    <string name="stats">Stats:</string>
+    <string name="total_attempts">Total Attempts:</string>
+    <string name="total_completed">Total Completed:</string>
+    <string name="total_stars">Total Stars:</string>
+    <string name="vote_score">Vote Score:</string>
+    <string name="created_at">Created At:</string>
+    <string name="published_at">Published At:</string>
 </resources>
