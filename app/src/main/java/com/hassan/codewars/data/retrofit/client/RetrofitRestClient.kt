@@ -16,7 +16,7 @@ object RetrofitRestClient {
         if (retrofit == null) {
 
             val interceptor = HttpLoggingInterceptor()
-            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            interceptor.level = HttpLoggingInterceptor.Level.NONE
             val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
             retrofit = Retrofit.Builder()
                 .baseUrl(ApiConstant.BASE_URL)
