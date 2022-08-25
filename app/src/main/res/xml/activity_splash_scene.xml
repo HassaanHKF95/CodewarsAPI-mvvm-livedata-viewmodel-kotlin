@@ -10,6 +10,18 @@
         motion:autoTransition="animateToEnd">
        <KeyFrameSet>
            <KeyAttribute
+               motion:motionTarget="@+id/textView"
+               motion:framePosition="0"
+               android:alpha="0.1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/textView"
+               motion:framePosition="0"
+               android:scaleX="0.5" />
+           <KeyAttribute
+               motion:motionTarget="@+id/textView"
+               motion:framePosition="0"
+               android:scaleY="0.5" />
+           <KeyAttribute
                motion:motionTarget="@+id/imageView"
                motion:framePosition="0"
                android:alpha="0.5" />

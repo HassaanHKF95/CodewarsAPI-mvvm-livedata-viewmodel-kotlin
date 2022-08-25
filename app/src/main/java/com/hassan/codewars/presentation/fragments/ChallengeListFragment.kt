@@ -13,6 +13,8 @@ import com.hassan.codewars.R
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.hassan.codewars.data.helper.PaginationScrollListener
 import com.hassan.codewars.databinding.FragmentChallengeListBinding
 import com.hassan.codewars.presentation.adapters.ChallengeListAdapter
 import com.hassan.codewars.presentation.models.viewModels.ChallengesListViewModel
@@ -23,6 +25,9 @@ class ChallengeListFragment : Fragment() {
     lateinit var viewModel: ChallengesListViewModel
     val adapter = ChallengeListAdapter()
 
+    var isLastPage: Boolean = false
+    var isLoading: Boolean = false
+    var page = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,22 +38,42 @@ class ChallengeListFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ChallengesListViewModel::class.java)
 
-
-        binding.challengeRecycler.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val layoutManager = LinearLayoutManager(context)
+        binding.challengeRecycler.layoutManager = layoutManager
         binding.challengeRecycler.adapter = adapter
         viewModel.init()
 
         startShimmerEffect()
         viewModel.getchallengesModelLiveData()?.observe(viewLifecycleOwner, {
             if (it != null) {
+                isLoading = false
                 stopShimmerEffect()
                 binding.challengeRecycler.visibility = View.VISIBLE
                 adapter.setChallengeList(it.data)
+                binding.progressBar.visibility = View.GONE
             }
         })
 
-        viewModel.callChallengesAPI("0")
+        viewModel.callChallengesAPI(page)
+
+        //pagination
+        binding.challengeRecycler.addOnScrollListener(object : PaginationScrollListener(layoutManager){
+
+            override fun isLastPage(): Boolean {
+                 return isLastPage
+            }
+
+            override fun isLoading(): Boolean {
+                return isLoading
+            }
+
+            override fun loadMoreItems() {
+                binding.progressBar.visibility = View.VISIBLE
+                isLoading = true
+                page++
+                viewModel.callChallengesAPI(page)
+            }
+        })
 
         return binding.root
     }

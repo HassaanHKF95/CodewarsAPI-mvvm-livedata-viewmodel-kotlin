@@ -12,6 +12,6 @@ interface ListOfCompletedChallengesAPI {
 
     @GET("users/Voile/code-challenges/completed")
     fun getListOfCompletedChallengesAPI(
-        @Query("page") query: String?
+        @Query("page") query: Int?
     ): Call<ChallengesModel>
 }

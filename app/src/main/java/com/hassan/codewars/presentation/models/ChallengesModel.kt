@@ -6,4 +6,8 @@ class ChallengesModel {
     @SerializedName("data")
     val data: List<ChallengesListModel>? = null
 
+    @SerializedName("totalItems")
+    val totalItems: String? = null
+
+
 }

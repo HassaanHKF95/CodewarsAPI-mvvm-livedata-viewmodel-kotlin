@@ -19,7 +19,7 @@ open class CodeWarRepository {
         RetrofitRestClient.getRetrofit().create(ListOfCompletedChallengesAPI::class.java)
 
 
-    fun getChallengesListAPI(page: String) {
+    fun getChallengesListAPI(page: Int) {
         mApiInterface.getListOfCompletedChallengesAPI(page)
             .enqueue(object : Callback<ChallengesModel> {
                 override fun onResponse(

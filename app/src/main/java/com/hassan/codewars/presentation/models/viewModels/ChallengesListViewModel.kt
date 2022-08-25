@@ -14,7 +14,7 @@ class ChallengesListViewModel : ViewModel() {
     fun init() {
         challengesModelLiveData = challengesRepository.getchallengesResponseLiveData()
     }
-    fun callChallengesAPI(page: String){
+    fun callChallengesAPI(page: Int){
         challengesRepository.getChallengesListAPI(page)
     }
 

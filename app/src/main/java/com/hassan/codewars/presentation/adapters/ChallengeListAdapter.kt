@@ -40,7 +40,7 @@ class ChallengeListAdapter : RecyclerView.Adapter<ChallengeViewHolder>() {
     }
 
     fun setChallengeList(ch: List<ChallengesListModel>?) {
-        this.challengesList = ch!!.toMutableList()
+        this.challengesList.addAll(ch!!.toMutableList())
         notifyDataSetChanged()
     }
 }

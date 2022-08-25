@@ -51,7 +51,8 @@ class Splash : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        //
-//        super.onBackPressed()
+
+        //super.onBackPressed()
+        //commenting super to don't let user to press back 
     }
 }
