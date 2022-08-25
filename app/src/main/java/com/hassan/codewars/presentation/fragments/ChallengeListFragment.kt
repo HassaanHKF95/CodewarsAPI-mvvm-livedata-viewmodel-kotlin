@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.hassan.codewars.R
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -51,6 +52,9 @@ class ChallengeListFragment : Fragment() {
                 binding.challengeRecycler.visibility = View.VISIBLE
                 adapter.setChallengeList(it.data)
                 binding.progressBar.visibility = View.GONE
+            }else{
+                stopShimmerEffect()
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show()
             }
         })
 
